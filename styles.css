@@ -19,39 +19,69 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
+    padding-bottom: 0px;
+
     background-color: #1a1a1a;
 }
 
 header .logo img {
-    width: 150px;
+    width: 100px;
+}
+
+nav {
+    background: #000; /* Dark black background */
+    padding: 15px 0;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
 
 nav ul {
     list-style: none;
     display: flex;
+    justify-content: center;
     gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    display: inline-block;
 }
 
 nav ul li a {
-    color: #ffffff;
+    color: white; /* White text color by default */
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s;
+    font-size: 18px;
+    padding: 10px 15px;
+    transition: background 0.3s, color 0.3s, border-radius 0.3s;
+    border-radius: 5px;
 }
 
 nav ul li a:hover {
-    color: #ff6347;
+    background: white; /* White background on hover */
+    color: black; /* Black text on hover */
+    border-radius: 5
 }
+
 
 /* Hero Section */
 #hero {
     height: 100vh;
-    background: url('images/background.jpeg') no-repeat center center/cover;
+    background: url('images/background2.jpg') no-repeat center center;
+    background-size: contain; /* Ensures the whole image fits */
+    background-attachment: fixed; /* Keeps the background still */
+    background-color: black; /* Fallback color in case of empty space */
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
+
 
 #hero .hero-content {
     max-width: 600px;
@@ -142,5 +172,81 @@ footer a {
 
 footer a:hover {
     color: #ff6347;
+}
+
+
+#featured-heros {
+    text-align: center;
+    padding: 50px 0;
+}
+
+.carousel-container {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.3s ease;
+}
+
+.carousel-item {
+    min-width: 33.33%;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.carousel-item h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.carousel-item p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.cta-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 30px;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.carousel-nav.prev {
+    left: 10px;
+}
+
+.carousel-nav.next {
+    right: 10px;
+}
+
+.carousel-nav:hover {
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
