@@ -19,8 +19,6 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    padding-bottom: 0px;
-
     background-color: #1a1a1a;
 }
 
@@ -29,9 +27,9 @@ header .logo img {
 }
 
 nav {
-    background: #000; /* Dark black background */
+    background: #000;
     padding: 15px 0;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     position: fixed;
     width: 100%;
     top: 0;
@@ -53,7 +51,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white; /* White text color by default */
+    color: white;
     text-decoration: none;
     font-weight: bold;
     font-size: 18px;
@@ -63,25 +61,23 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background: white; /* White background on hover */
-    color: black; /* Black text on hover */
-    border-radius: 5
+    background: white;
+    color: black;
+    border-radius: 5px;
 }
-
 
 /* Hero Section */
 #hero {
     height: 100vh;
     background: url('images/background2.jpg') no-repeat center center;
-    background-size: contain; /* Ensures the whole image fits */
-    background-attachment: fixed; /* Keeps the background still */
-    background-color: black; /* Fallback color in case of empty space */
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: black;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
-
 
 #hero .hero-content {
     max-width: 600px;
@@ -111,142 +107,103 @@ nav ul li a:hover {
     background-color: #e5533d;
 }
 
-/* Games Section */
-#games, #news, #community {
-    padding: 50px 20px;
-    text-align: center;
-}
-
-#games h2, #news h2, #community h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-}
-
-.game-list, .news-list {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-.game-item, .news-item {
-    background-color: #1a1a1a;
-    padding: 20px;
-    border-radius: 10px;
-    width: 300px;
-    text-align: left;
-}
-
-.game-item img, .news-item img {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 15px;
-}
-
-.game-item h3, .news-item h3 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-}
-
-.game-item p, .news-item p {
-    font-size: 1rem;
-    margin-bottom: 15px;
-}
-
-footer {
-    background-color: #1a1a1a;
-    padding: 20px;
-    text-align: center;
-}
-
-footer p {
-    margin: 10px 0;
-}
-
-footer a {
-    color: #ffffff;
-    text-decoration: none;
-    margin: 0 10px;
-    font-weight: bold;
-}
-
-footer a:hover {
-    color: #ff6347;
-}
-
-
+/* Custom styles for Slick Carousel */
+/* Featured Heroes Section */
 #featured-heros {
+    padding: 20px 0;
     text-align: center;
-    padding: 50px 0;
-}
-
-.carousel-container {
-    position: relative;
-    width: 80%;
-    margin: 0 auto;
-    overflow: hidden;
 }
 
 .carousel {
-    display: flex;
-    transition: transform 0.3s ease;
+    margin: 0 auto;
+    width: 80%;
 }
 
+/* Center all elements inside carousel items */
 .carousel-item {
-    min-width: 33.33%;
+    display: flex !important; /* Force flexbox */
+    flex-direction: column;
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
     padding: 20px;
-    box-sizing: border-box;
     text-align: center;
 }
 
 .carousel-item img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin-bottom: 20px;
+    width: 80%;
+    border-radius: 8px;
+    max-height: 50vh;
+    object-fit: cover;
 }
 
-.carousel-item h3 {
-    font-size: 24px;
-    margin-bottom: 10px;
+.carousel-item h3, .carousel-item p, .carousel-item a {
+    margin: 10px 0;
+    width: 100%; /* Ensure text doesn't overflow */
 }
 
-.carousel-item p {
-    font-size: 16px;
-    margin-bottom: 20px;
+/* Ensure Slick Carousel slides are centered */
+.slick-slide {
+    display: flex !important; /* Force flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
 }
 
-.cta-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #333;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-}
-
-.carousel-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+/* Custom Slick Carousel Arrows */
+.slick-prev, .slick-next {
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
-    font-size: 30px;
     border: none;
     padding: 10px;
     cursor: pointer;
-    z-index: 1;
+    z-index: 10;
 }
 
-.carousel-nav.prev {
-    left: 10px;
+.slick-prev {
+    left: -40px;
 }
 
-.carousel-nav.next {
-    right: 10px;
+.slick-next {
+    right: -40px;
 }
 
-.carousel-nav:hover {
-    background-color: rgba(0, 0, 0, 0.8);
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .carousel {
+        width: 90%;
+    }
 }
 
+@media (max-width: 480px) {
+    .carousel {
+        width: 100%;
+    }
+}
+
+/* Featured Heroes Header */
+/* Featured Heroes Header */
+#featured-heros h2 {
+    font-size: 3rem; /* Larger font size */
+    font-family: 'Boldonse', sans-serif; /* Use Boldonse font */
+    color: white; /* White text color */
+    text-transform: uppercase; /* Uppercase text */
+    letter-spacing: 2px; /* Add spacing between letters */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Subtle shadow for depth */
+    margin-bottom: 30px; /* Add spacing below the header */
+    position: relative; /* For the underline effect */
+}
+
+/* Underline Effect */
+#featured-heros h2::after {
+    content: '';
+    display: block;
+    width: 60px; /* Width of the underline */
+    height: 3px; /* Thickness of the underline */
+    background: white; /* White underline */
+    margin: 10px auto 0; /* Center the underline */
+    transition: width 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Hover Effect */
+#featured-heros h2:hover::after {
+    width: 100px; /* Expand the underline on hover */
+}
