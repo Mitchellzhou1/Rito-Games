@@ -1,0 +1,64 @@
+1. Reconnaissance (Information Gathering)
+
+Use tools like nmap or nikto to scan the target (e.g., nmap -sV 10.9.8.110).
+Discover the CVE-2025-24813 vulnerability associated with this version.
+
+2. Weaponization (Exploit Preparation)
+
+The exploit involves a remote code execution (RCE) vulnerability in Tomcat's management interface.
+https://github.com/PaloAltoNetworks/Unit42-timely-threat-intel/blob/main/2025-03-14-Testing-CVE-2025-24813.md
+https://github.com/iSee857/CVE-2025-24813-PoC/blob/main/Tomcat_CVE-2025-24813_RCE.py
+
+3. Delivery (Exploit Deployment)
+Task: Deliver the exploit to the target.
+
+4. Exploitation (Gaining Access)
+Task: Execute the exploit and gain a foothold.
+Include a Progress check1.py --> root permissions
+
+5. Installation (Persistence)
+Task: Establish persistence on the webserver.
+create a persistent script.py
+
+Hints:
+
+Add a cron job or backdoor user.
+
+Flag: FLAG2: PERSISTENCE_SET in /root/.ssh/authorized_keys.
+
+6. Command & Control (Lateral Movement)
+Task: Pivot to the internal network (10.9.8.0/24) and access the Design or Engineering team hosts.
+
+Hints:
+
+Use the webserver as a pivot (e.g., sshuttle or chisel).
+
+Discover credentials or misconfigurations (e.g., weak SSH passwords in /var/lib/tomcat9/conf/tomcat-users.xml).
+
+Flag on Client 1 (Design Team): FLAG3: DESIGN_SECRETS in C:\Design\blueprints.zip.
+
+7. Actions on Objectives (Exfiltration)
+Task: Exfiltrate sensitive data.
+
+Hints:
+
+Use scp or HTTP POST to send data to the attacker's machine.
+
+Final flag: FLAG4: KILL_CHAIN_COMPLETE in C:\Engineering\passwords.txt.
+
+Additional Enhancements:
+Misconfigurations:
+
+Allow players to discover SSH credentials (e.g., tomcat:admin123) in a backup file.
+
+Network Pivoting:
+
+Require ARP spoofing or port forwarding to reach the 10.9.8.0/24 network from 192.168.1.100.
+
+Red Herrings:
+
+Add fake vulnerabilities (e.g., an outdated WordPress plugin) to test players' focus.
+
+Log Analysis:
+
+Include a bonus task to cover tracks (e.g., clear logs in /var/log/tomcat9/).
