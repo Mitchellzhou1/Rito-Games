@@ -110,6 +110,7 @@ def main():
 
     # Test command execution
     print("\nEnter commands to execute (or 'exit' to quit):")
+    print(f"{RED}Commands are run separately. Chain them with ';' to execute together.")
     while True:
         cmd = input("$ ")
         if cmd.lower() in ['exit', 'quit']:
