@@ -2,9 +2,352 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drifter - Blog | Rito Games</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Boldonse&display=swap" rel="stylesheet">
+    <style>
+        /* HERO SECTION STYLES */
+        .blog-hero {
+            height: auto;
+            min-height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('images/drifter/Drift.jpg') no-repeat center center;
+            background-size: cover;
+            padding: 100px 5% 60px;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            color: white;
+        }
+
+        .hero-text h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: white;
+            font-family: 'Boldonse', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .hero-text p {
+            font-size: 1.5rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 800px;
+        }
+
+        .author-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .author-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid white;
+        }
+
+        .author-info {
+            line-height: 1.4;
+        }
+
+        .author-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .author-name {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-text p {
+                font-size: 1.2rem;
+            }
+
+            .author-section {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .author-avatar {
+                width: 80px;
+                height: 80px;
+            }
+        }
+
+        .blog-content {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .blog-post {
+            background-color: #1a1a1a;
+            padding: 40px;
+            border-radius: 10px;
+            margin-bottom: 50px;
+        }
+
+        .blog-post h2 {
+            color: #ffff;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .blog-post h3 {
+            color: #ffff;
+            font-size: 1.8rem;
+            margin: 30px 0 15px;
+        }
+
+        .blog-post p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .blog-post img {
+            width: 100%;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .feature-list {
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+
+        .feature-list li {
+            margin-bottom: 10px;
+        }
+
+        /* COUNTDOWN STYLES */
+        .countdown-container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 40px 0;
+            box-shadow: 0 10px 30px rgba(255, 77, 77, 0.3);
+        }
+
+        .countdown-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .countdown-item {
+            background-color: black;
+            border-radius: 10px;
+            padding: 20px;
+            min-width: 120px;
+        }
+
+        .countdown-number {
+            font-size: 4rem;
+            font-weight: bold;
+            line-height: 1;
+            margin-bottom: 5px;
+            text-shadow: 0 3px 5px rgba(0,0,0,0.3);
+        }
+
+        .countdown-label {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .release-date {
+            background-color: #ff4d4d;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            display: inline-block;
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(255, 77, 77, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .blog-hero h1 {
+                font-size: 3rem;
+            }
+
+            .blog-hero p {
+                font-size: 1.2rem;
+            }
+
+            .blog-post {
+                padding: 25px;
+            }
+
+            .countdown-item {
+                min-width: 80px;
+                padding: 15px;
+            }
+
+            .countdown-number {
+                font-size: 2.5rem;
+            }
+
+            .countdown-label {
+                font-size: 0.9rem;
+            }
+
+            .countdown-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/clear-logo.png" alt="Rito Games Logo">
+                </a>
+            </div>
+            <ul>
+                <li><a href="index.html#hero">Home</a></li>
+                <li><a href="index.html#recent-news">News</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="/team">About</a></li>
+            </ul>
+        </nav>
+    </header>
 
+    <section class="blog-hero">
+        <div class="hero-content-wrapper">
+            <div class="hero-text">
+                <h1>DRIFTER: THE ART OF SPEED</h1>
+                <p>Discover our newest racing experience that combines precision drifting with heart-pounding action</p>
+            </div>
+            <div class="author-section">
+                <img src="images/team/MichelleZhou.jpeg" alt="Michelle Zhou" class="author-avatar">
+                <div class="author-name">Author: Michelle Zhou</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="blog-content">
+        <div class="countdown-container">
+                <h3 class="countdown-title" style="color: #ff4d4d">Countdown to Release</h3>
+                <div class="countdown" id="countdown">
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="days">300</div>
+                        <div class="countdown-label">Days</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="hours">00</div>
+                        <div class="countdown-label">Hours</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="minutes">00</div>
+                        <div class="countdown-label">Minutes</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-number" id="seconds">00</div>
+                        <div class="countdown-label">Seconds</div>
+                    </div>
+                </div>
+                <div class="release-date">COMING MAY 2026</div>
+            </div>
+        <article class="blog-post">
+            <h2>Introducing Drifter</h2>
+            <p>Drifter is not just another racing game - it's a love letter to the art of controlled chaos. Born from countless hours studying real-world physics and the techniques of professional drifters, this game aims to capture the perfect balance between skill and spectacle.</p>
+
+            <img src="images/drifter/1.gif" alt="Drifter gameplay screenshot">
+            <img src="images/drifter/2.gif" alt="Drifter gameplay screenshot">
+            <img src="images/drifter/3.gif" alt="Drifter gameplay screenshot">
+
+
+
+            <h3>The Vision</h3>
+            <p>As the lead developer, I wanted to create something that stood apart from traditional racing games. While most focus on pure speed, Drifter celebrates the moments between acceleration - the weight transfer, the tire smoke, the precise countersteering that turns a simple corner into a work of art.</p>
+
+            <h3>Key Features</h3>
+            <ul class="feature-list">
+                <li><strong>Advanced Physics Engine:</strong> Our proprietary system calculates 27 different variables affecting your drift, from tire temperature to surface moisture</li>
+                <li><strong>Dynamic Environments:</strong> Tracks change throughout the day-night cycle, with different grip levels at dawn vs. dusk</li>
+                <li><strong>Car Customization:</strong> Over 500 performance and cosmetic upgrades that actually affect handling</li>
+                <li><strong>Original Soundtrack:</strong> Pulse-pounding synthwave tracks that adapt to your driving style</li>
+            </ul>
+
+            <h3>Development Challenges</h3>
+            <p>The biggest hurdle was making the physics feel authentic without becoming frustrating. We went through 47 iterations of our tire grip model before landing on the perfect balance between predictability and excitement. The breakthrough came when we implemented our "rubber band" system that subtly assists beginners while still rewarding expert technique.</p>
+
+            <h3>Release Date</h3>
+            <p>Our engineers are working tirelessly to ensure the best possible experience for our users. We are excited to announce that the closed beta will start next month, allowing us to gather valuable feedback and make necessary improvements. We are committed to delivering a high-quality product and are on track for a full release in May 2026. Thank you for your patience and support!</p>
+        </article>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const releaseDate = new Date("May 1, 2026 00:00:00").getTime();
+            const now = new Date().getTime();
+            const distance = releaseDate - now;
+
+            // Calculate days, hours, minutes, seconds
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display results
+            document.getElementById("days").innerHTML = days.toString().padStart(2, "0");
+            document.getElementById("hours").innerHTML = Math.floor(hours).toString().padStart(2, "0");
+            document.getElementById("minutes").innerHTML = Math.floor(minutes).toString().padStart(2, "0");
+            document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, "0");
+
+            // If countdown is finished
+            if (distance < 0) {
+                clearInterval(countdownTimer);
+                document.getElementById("countdown").innerHTML = "<div class='release-date'>DRIFTER IS OUT NOW!</div>";
+            }
+        }
+
+        // Update countdown every second
+        const countdownTimer = setInterval(updateCountdown, 1000);
+        updateCountdown(); // Initial call
+
+        // Confetti effect for form submission
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            confetti({
+                particleCount: 150,
+                spread: 90,
+                origin: { y: 0.8 }
+            });
+        });
+    </script>
 </body>
 </html>
