@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Rito Games</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Boldonse&display=swap" rel="stylesheet">
+    <style>
+        /* ABOUT PAGE STYLES */
+        .about-hero {
+            height: 40vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), url('images/team/background.jpg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            border-bottom: 1px solid #333;
+            margin-top: 40px;
+        }
+
+        .about-hero h1 {
+            font-size: 4rem;
+            color: white;
+            font-family: 'Boldonse', sans-serif;
+            text-transform: uppercase;
+        }
+
+        /* Executive Section - White Background */
+        .executive-section {
+            background: white;
+            padding: 80px 20px;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: black;
+            margin-bottom: 40px;
+            font-family: 'Boldonse', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .executive-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .executive-card {
+            background: #f8f8f8;
+            border-radius: 5px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s;
+            border: 1px solid #eee;
+        }
+
+        .executive-card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+        }
+
+        .executive-avatar {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid black;
+            margin: 0 auto 20px;
+        }
+
+        .executive-title {
+            color: #555;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .executive-name {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            font-family: 'Boldonse', sans-serif;
+            color: black;
+        }
+
+        .executive-bio {
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Others Section - Black Background */
+        .others-section {
+            background: black;
+            padding: 80px 20px;
+            border-top: 1px solid #333;
+        }
+
+        .others-section .section-title {
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .about-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .executive-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="images/clear-logo.png" alt="Rito Games Logo">
+            </div>
+            <ul>
+                <li><a href="index.html#hero">Home</a></li>
+                <li><a href="index.html#recent-news">News</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="about-hero">
+        <h1>About Us</h1>
+    </section>
+
+    <!-- Executive Section - White Background -->
+    <section class="executive-section">
+        <div class="section-container">
+            <h2 class="section-title">Leadership</h2>
+            <div class="executive-grid">
+                <!-- CFO -->
+                <div class="executive-card">
+                    <img src="images/team/yunner.jpeg" alt="Yunner" class="executive-avatar">
+                    <div class="executive-title">CHIEF INFORMATION OFFICER</div>
+                    <div class="executive-name">Yunner</div>
+                    <p class="executive-bio">Leads Security<br>Keeps all systems secure from attackers. If our new game gets leaked it is her fault.</p>
+                </div>
+
+                <!-- CEO -->
+                <div class="executive-card">
+                    <img src="images/team/mitch.jpeg" alt="Mitch" class="executive-avatar">
+                    <div class="executive-title">CHIEF EXECUTIVE OFFICER</div>
+                    <div class="executive-name">Mike</div>
+                    <p class="executive-bio">Handles all the business decisions<br>Visionary leader steering Rito Games to new heights.</p>
+                </div>
+
+                <!-- CTO -->
+                <div class="executive-card">
+                    <img src="images/team/jat.jpeg" alt="Jat" class="executive-avatar">
+                    <div class="executive-title">CHIEF TECHNOLOGY OFFICER</div>
+                    <div class="executive-name">Jat</div>
+                    <p class="executive-bio">Handles all the networking<br>Ensures our games connect players flawlessly worldwide.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="others-section">
+        <div class="section-container">
+            <h2 class="section-title">The Team</h2>
+
+            <div class="executive-grid" style="grid-template-columns: 1fr; margin-top: 60px;">
+                <div class="executive-card" style="background: #111; border-color: #333;">
+                    <img src="images/team/michelle.jpeg" alt="Lead Developer" class="executive-avatar">
+                    <div class="executive-title" style="color: #bbb;">LEAD DEV</div>
+                    <div class="executive-name" style="color: white;">Michelle Zhou</div>
+                    <p class="executive-bio" style="color: #ccc;">
+                        Creates all games and this website 😊<br>
+                        Earns the most money in the company
+                    </p>
+                </div>
+            </div>
+
+            <!-- AI Engineers - 3 Column Row -->
+            <div class="executive-grid" style="margin-top: 40px;">
+                <!-- AI Engineer 1 -->
+                <div class="executive-card" style="background: #111; border-color: #333;">
+                    <img src="images/team/chatgpt.png" alt="AI Engineer" class="executive-avatar">
+                    <div class="executive-title" style="color: #bbb;">AI ENGINEER 1</div>
+                    <div class="executive-name" style="color: white;">Chat GPT</div>
+                    <p class="executive-bio" style="color: #ccc;">
+                        Used for generating HTML and CSS code
+                    </p>
+
+                </div>
+
+                <!-- AI Engineer 2 -->
+                <div class="executive-card" style="background: #111; border-color: #333;">
+                    <img src="images/team/deepseek.png" alt="AI Engineer" class="executive-avatar">
+                    <div class="executive-title" style="color: #bbb;">AI ENGINEER</div>
+                    <div class="executive-name" style="color: white;">Deep Seek</div>
+                    <p class="executive-bio" style="color: #ccc;">
+                        Used for generating HTML and CSS code
+                    </p>
+                </div>
+
+                <!-- AI Engineer 3 -->
+                <div class="executive-card" style="background: #111; border-color: #333;">
+                    <img src="images/team/copilot.png" alt="AI Engineer" class="executive-avatar">
+                    <div class="executive-title" style="color: #bbb;">AI ENGINEER</div>
+                    <div class="executive-name" style="color: white;">Copilot</div>
+                    <p class="executive-bio" style="color: #ccc;">
+                        Used to generate all images <br> (it's so good)
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
