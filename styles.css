@@ -3,6 +3,19 @@ html {
     scroll-behavior: smooth;
 }
 
+@font-face {
+    font-family: 'Boldonse';
+    src: url('css_resources/Boldonse-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Apply Boldonse only to #hero section */
+#hero {
+    font-family: 'Boldonse', sans-serif;
+}
+
+
 * {
     margin: 0;
     padding: 0;
